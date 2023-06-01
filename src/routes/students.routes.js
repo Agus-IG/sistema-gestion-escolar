@@ -7,6 +7,8 @@ const studentsControllers = require('../controllers/studentsController');
 //Ruta para mostrar todos los estudiantes
 routerStudents.get('/', studentsControllers._getStudents);
 
+/* 
+
 //Ruta para mostrar un estudiante por su id
 routerStudents.get();
 
@@ -18,5 +20,9 @@ routerStudents.put();
 
 //Ruta para eliminar un estudiante por su id
 routerStudents.delete();
+
+*/
+
+
 
 module.exports = routerStudents;

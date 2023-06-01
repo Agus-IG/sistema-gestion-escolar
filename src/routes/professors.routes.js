@@ -1,22 +1,24 @@
 const express = require('express');
-const routerProfessors = express.Router();
+const router = express.Router();
 const professorsControllers = require('../controllers/professorsController');
 
 //* Definicion de rutas y derivacion al controlador correspondiente
 
-//Ruta para mostrar todos los profesores
-routerProfessors.get();
+/* //Ruta para mostrar todos los profesores
+router.get();
 
 //Ruta para mostrar un profesor por su id
-routerProfessors.get();
+router.get();
 
 //Ruta para crear un profesor
-routerProfessors.post();
+router.post();
 
 //Ruta para actualizar un profesor por su id
-routerProfessors.put();
+router.put();
 
 //Ruta para eliminar un profesor por su id
-routerProfessors.delete();
+router.delete(); */
 
-module.exports = routerProfessors;
+
+
+module.exports = router;

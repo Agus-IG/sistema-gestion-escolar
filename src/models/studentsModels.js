@@ -8,7 +8,7 @@ exports.getStudents = async () => {
     return rows;
 };
 
-exports.getStudentById = async (id) => {
+/* exports.getStudentById = async (id) => {
     const [rows, fields] = await db.execute('SELECT * FROM estudiantes WHERE id=?', [id]);
     console.log(rows);
     return rows;
@@ -23,4 +23,4 @@ exports.addStudent = async (student) => {
 exports.updateStudent = async (student) => {
     console.log(student);
     const [rows, fields] = await db.execute('UPDATE estudiantes SET nombre = ?, edad = ?, grado = ? WHERE id = ?)', [student.nombre, student.edad, student.grado, student.id]);
-};
+}; */

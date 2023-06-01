@@ -17,9 +17,9 @@ class Server{
 
     //Definicion de las diferentes direcciones de las rutas
     routes(){
-        this.app.use('api/estudiantes',routerStudents);
-        this.app.use('api/profesores',routerProfessors);
-        this.app.use('api/cursos',routerSubjects);
+        this.app.use('/api/estudiantes',routerStudents);
+        this.app.use('/api/profesores',routerProfessors);
+        this.app.use('/api/cursos',routerSubjects);
     }
 
     middlewares(){
