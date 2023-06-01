@@ -5,7 +5,7 @@ const studentsControllers = require('../controllers/studentsController');
 //* Definicion de rutas y derivacion al controlodaro correspondiente
 
 //Ruta para mostrar todos los estudiantes
-routerStudents.get();
+routerStudents.get('/', studentsControllers._getStudents);
 
 //Ruta para mostrar un estudiante por su id
 routerStudents.get();
