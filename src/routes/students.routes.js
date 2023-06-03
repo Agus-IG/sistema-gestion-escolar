@@ -13,10 +13,10 @@ routerStudents.get('/:id', studentsControllers._getStudentById);
 //Ruta para crear un estudiante
 routerStudents.post('/', studentsControllers._addStudent);
 
-/* 
 //Ruta para actualizar un estudiante por su id
-routerStudents.put();
+routerStudents.put('/:id', studentsControllers._updateStudent);
 
+/*
 //Ruta para eliminar un estudiante por su id
 routerStudents.delete();
 

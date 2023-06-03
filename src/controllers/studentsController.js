@@ -90,3 +90,40 @@ exports._addStudent = async (req, res) => {
     };
 
 };
+
+//Constrolador para actualizar los datos de un estudiante
+exports._updateStudent = async (req, res) => {
+    const studentData = req.body;
+    const idStudent = req.params.id;
+
+    const student = {
+        idStudent,
+        ...studentData
+    }
+
+    console.log(student);
+
+    try {
+        const listUpdate = await studentModel.updateStudent(student);
+        if (listUpdate < 1) {
+            res.status(404).json({
+                success: false,
+                msg: 'Datos no actualizados'
+            });
+        };
+
+        res.status(200).json({
+            success: true,
+            msg: "Datos actualizados",
+            listUpdate
+        });
+    }
+    catch (error) {
+
+        console.error(error)
+        res.status(500).json({
+            success: false,
+            message: 'Hubo un error al obtener los datos'
+        });
+    };
+};
