@@ -28,3 +28,9 @@ exports.updateStudent = async (student) => {
     console.log(student);
     const [rows, fields] = await db.execute('UPDATE estudiantes SET nombre = ?, edad = ?, grado = ? WHERE id = ?', [student.nombre, student.edad, student.grado, student.id]);
 };
+
+//Consulta PUT
+exports.deleteStudent = async (id) => {
+    const [rows, fields] = await db.execute('DELETE FROM estudiantes WHERE id = ?',[id]);
+    return rows;
+}

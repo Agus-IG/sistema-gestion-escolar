@@ -127,3 +127,35 @@ exports._updateStudent = async (req, res) => {
         });
     };
 };
+
+//Controlador para eliminar a un estudiante por su id
+exports._deleteStudent = async (req, res) => {
+    const idStudent = req.params.id;
+
+    try {
+
+        const student = await studentModel.deleteStudent(idStudent);
+
+        if (student.length < 1) {
+            res.status(404).json({
+                success: false,
+                message: `No existe estudiante con el id: ${idStudent}`
+            });
+        };
+
+        //*Si todo esta correcto se mostrara el estudiante
+        res.status(200).json({
+            success: true,
+            message: "El estudiante fue eliminado con exito"
+        });
+        
+    } catch (error) {
+
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: 'Hubo un error al obtener los datos'
+        });
+        
+    };
+};
