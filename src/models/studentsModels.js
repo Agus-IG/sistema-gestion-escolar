@@ -14,12 +14,12 @@ exports.getStudentById = async (id) => {
     return rows;
 };
 
-/*  exports.addStudent = async (student) => {
+exports.addStudent = async (student) => {
     const [rows, fields] = await db.execute('INSERT INTO estudiantes (nombre, edad, grado) VALUES(?, ?, ?)', [student.nombre, student.edad, student.grado]);
-    console.log(rows);
     return rows;
 };
 
+/*  
 exports.updateStudent = async (student) => {
     console.log(student);
     const [rows, fields] = await db.execute('UPDATE estudiantes SET nombre = ?, edad = ?, grado = ? WHERE id = ?)', [student.nombre, student.edad, student.grado, student.id]);

@@ -30,7 +30,8 @@ exports._getStudents = async (req, res) => {
     };
 };
 
-exports.getStudentById = async (req, res) => {
+//Controlador para listar un estudiante
+exports._getStudentById = async (req, res) => {
     const idStudent = req.params.id;
 
     //Evaluacion del bloque dentro del try
@@ -63,4 +64,29 @@ exports.getStudentById = async (req, res) => {
         });
 
     };
+};
+
+//Controlador para crear un estudiante
+exports._addStudent = async (req, res) => {
+
+    //Tomamos los datos que ingresamos y los guardamos en una constante
+    const student = req.body;
+
+    try {
+
+        res.status(201).json({
+            success: true,
+            message: "Estudiante agregado con exito!",
+            student
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: "Hubo un error al obtener los datos"
+        });
+
+    };
+
 };

@@ -8,12 +8,12 @@ const studentsControllers = require('../controllers/studentsController');
 routerStudents.get('/', studentsControllers._getStudents);
 
 //Ruta para mostrar un estudiante por su id
-routerStudents.get('/:id', studentsControllers.getStudentById);
+routerStudents.get('/:id', studentsControllers._getStudentById);
+
+//Ruta para crear un estudiante
+routerStudents.post('/', studentsControllers._addStudent);
 
 /* 
-//Ruta para crear un estudiante
-routerStudents.post();
-
 //Ruta para actualizar un estudiante por su id
 routerStudents.put();
 
