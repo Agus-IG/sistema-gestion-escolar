@@ -8,13 +8,13 @@ exports.getStudents = async () => {
     return rows;
 };
 
-/* exports.getStudentById = async (id) => {
+exports.getStudentById = async (id) => {
     const [rows, fields] = await db.execute('SELECT * FROM estudiantes WHERE id=?', [id]);
     console.log(rows);
     return rows;
 };
 
-exports.addStudent = async (student) => {
+/*  exports.addStudent = async (student) => {
     const [rows, fields] = await db.execute('INSERT INTO estudiantes (nombre, edad, grado) VALUES(?, ?, ?)', [student.nombre, student.edad, student.grado]);
     console.log(rows);
     return rows;
