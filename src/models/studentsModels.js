@@ -33,4 +33,4 @@ exports.updateStudent = async (student) => {
 exports.deleteStudent = async (id) => {
     const [rows, fields] = await db.execute('DELETE FROM estudiantes WHERE id = ?',[id]);
     return rows;
-}
+};

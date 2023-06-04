@@ -74,6 +74,8 @@ exports._addStudent = async (req, res) => {
 
     try {
 
+        const id = await studentModel.addStudent(student);
+
         res.status(201).json({
             success: true,
             message: "Estudiante agregado con exito!",
