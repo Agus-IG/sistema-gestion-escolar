@@ -4,21 +4,20 @@ const subjectsController = require('../controllers/subjectsController');
 
 //* Definicion de rutas y derivacion al controlador correspondiente
 
-/* //Ruta para mostrar todos los cursos
-routerSubjects.get();
+//Ruta para mostrar todos los cursos
+routerSubjects.get('/', subjectsController._getSubjects);
 
 //Ruta para mostrar un curso por su id
-routerSubjects.get();
+routerSubjects.get('/:id', subjectsController._getSubjectById);
 
 //Ruta para crear un curso
-routerSubjects.post();
+routerSubjects.post('/', subjectsController._addSubject);
 
 //Ruta para actualizar un curso por su id
-routerSubjects.put();
+routerSubjects.put('/:id', subjectsController._updateSubject);
 
 //Ruta para eliminar un curso por su id
-routerSubjects.delete();
- */
+routerSubjects.delete('/:id', subjectsController._deleteSubject);
 
 
 module.exports = routerSubjects;
