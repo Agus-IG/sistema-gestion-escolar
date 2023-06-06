@@ -19,5 +19,7 @@ routerStudents.put('/:id', studentsControllers._updateStudent);
 //Ruta para eliminar un estudiante por su id
 routerStudents.delete('/:id', studentsControllers._deleteStudent);
 
+//Ruta para mostrar los cursos en los que esta el estudiante
+routerStudents.get('/:id/cursos', studentsControllers._getStudentSubjects);
 
 module.exports = routerStudents;

@@ -34,3 +34,10 @@ exports.deleteStudent = async (id) => {
     const [rows, fields] = await db.execute('DELETE FROM estudiantes WHERE id = ?',[id]);
     return rows;
 };
+
+//Consulta GET para obtener todos los cursos en los que esta el estudiante
+exports.getStudentsSubjects = async (id) => {
+    const [rows, fields] = await db.execute('SELECT cursos.nombre, cursos.especialidad FROM `estudiantes_cursos` INNER JOIN cursos ON estudiantes_cursos.curso_id = cursos.id INNER JOIN estudiantes ON estudiantes_cursos.estudiante_id = estudiantes.id AND estudiantes.id = ?',[id]);
+    console.log(rows);
+    return rows;
+};
