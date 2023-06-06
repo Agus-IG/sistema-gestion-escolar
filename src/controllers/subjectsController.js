@@ -161,3 +161,39 @@ exports._deleteSubject = async (req, res) => {
         
     };
 };
+
+//Controlador para listar los estudiantes que realizan el curso
+exports._getStudentSubjects = async (req, res) => {
+    const idSubjectsStudents = req.params.id;
+
+    //Evaluacion del bloque dentro del try
+    try {
+        //Obtenemos los datos desde el modelo
+        const subjectStudents = await subjectModel.getSubjectStudents(idSubjectsStudents);
+
+        //Creamos una condicion en caso de que el estudiante que queramos mostrar no exista en la base de datos
+        if (subjectStudents.length < 1) {
+            res.status(404).json({
+                success: false,
+                message: `No existe estudiante con el id: ${idStudent}`
+            })
+        }
+
+        //*Si todo esta correcto se mostrara el estudiante
+        res.status(200).json({
+            success: true,
+            subjectStudents
+        });
+
+    } catch (error) {
+
+        /* Si lo que esta dentro del try falla, se ejecutara las siguientes lineas de codigo para avisar del error tanto por consola como por el lado del cliente */
+
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: 'Hubo un error al obtener los datos'
+        });
+
+    };
+};
