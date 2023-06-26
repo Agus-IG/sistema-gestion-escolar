@@ -197,3 +197,30 @@ exports._getStudentSubjects = async (req, res) => {
 
     };
 };
+
+exports._addStudentSubject = async (req, res) => {
+
+    //Tomamos los datos que ingresamos y los guardamos en una constante
+    const subjectId = req.params.id
+    const studentId = req.body;
+
+    try {
+
+        const id = await subjectModel.addStudentSubject(studentId);
+
+        res.status(201).json({
+            success: true,
+            message: "Estudiante agregado al curso con exito!",
+            
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: "Hubo un error al obtener los datos"
+        });
+
+    };
+
+};
