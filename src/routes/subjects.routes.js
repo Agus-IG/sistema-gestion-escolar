@@ -22,5 +22,7 @@ routerSubjects.delete('/:id', subjectsController._deleteSubject);
 //Ruta para mostrar los estudiantes que realizan el curso
 routerSubjects.get('/:id/estudiantes', subjectsController._getStudentSubjects);
 
+routerSubjects.post('/:id/estudiantes', subjectsController._addStudentSubject);
+
 
 module.exports = routerSubjects;
