@@ -1,6 +1,8 @@
 const express = require('express');
 const routerProfessors = express.Router();
 const professorsControllers = require('../controllers/professorsController');
+const { check } = require('express-validator');
+const { validateFields } = require('../middlewares/validate-fields');
 
 //* Definicion de rutas y derivacion al controlador correspondiente
 
@@ -11,7 +13,15 @@ routerProfessors.get('/', professorsControllers._getProfessors);
 routerProfessors.get('/:id', professorsControllers._getProfessorById);
 
 //Ruta para crear un profesor
-routerProfessors.post('/', professorsControllers._addProfessor);
+routerProfessors.post('/',
+    [
+        check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+        check('especialidad', 'La especialidad es obligatoria').not().isEmpty(),
+        check('email', 'El email es obligatorio').isEmail(),
+        validateFields
+    ],
+    professorsControllers._addProfessor
+);
 
 //Ruta para actualizar un profesor por su id
 routerProfessors.put('/:id', professorsControllers._updateProfessor);

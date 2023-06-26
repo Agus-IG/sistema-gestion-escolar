@@ -77,7 +77,7 @@ exports._addProfessor = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: "Estudiante agregado con exito!",
+            message: "Profesor agregado con exito!",
             professor
         });
 
