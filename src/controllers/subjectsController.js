@@ -237,3 +237,41 @@ exports._addStudentSubject = async (req, res) => {
     };
 
 };
+
+
+exports._deleteStudentsSubject = async (req, res) => {
+    const id = req.params.id;
+    const idStudent = req.body;
+
+    const subject_student_delete = {
+        id,
+        ...idStudent
+    };
+
+    try {
+
+        const subject_student = await subjectModel.deleteStudentSubject(subject_student_delete);
+
+        if (subject_student.length < 1) {
+            res.status(404).json({
+                success: false,
+                message: `No existe curso con el id: ${idSubject}`
+            });
+        };
+
+        //*Si todo esta correcto se mostrara el curso
+        res.status(200).json({
+            success: true,
+            message: "El estudiante fue eliminado del curso con exito"
+        });
+        
+    } catch (error) {
+
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: 'Hubo un error al obtener los datos'
+        });
+        
+    };
+};

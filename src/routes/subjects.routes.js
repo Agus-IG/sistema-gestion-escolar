@@ -24,5 +24,7 @@ routerSubjects.get('/:id/estudiantes', subjectsController._getStudentSubjects);
 
 routerSubjects.post('/:id/estudiantes', subjectsController._addStudentSubject);
 
+routerSubjects.delete('/:id/estudiantes', subjectsController._deleteStudentsSubject);
+
 
 module.exports = routerSubjects;
