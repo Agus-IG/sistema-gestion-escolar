@@ -4,6 +4,7 @@ const professorsControllers = require('../controllers/professorsController');
 const { check } = require('express-validator');
 const { validateFields } = require('../middlewares/validate-fields');
 
+
 //* Definicion de rutas y derivacion al controlador correspondiente
 
 //Ruta para mostrar todos los profesores

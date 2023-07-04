@@ -201,14 +201,27 @@ exports._getStudentSubjects = async (req, res) => {
 exports._addStudentSubject = async (req, res) => {
 
     //Tomamos los datos que ingresamos y los guardamos en una constante
-    const subjectId = req.params.id
-    const studentId = req.body;
+    const id = req.params.id;
+    const studentData = req.body;
+
+    const subject_student = {
+        id,
+        ...studentData
+    };
+
+
+    console.log(subject_student);
 
     try {
+        const listUpdate = await subjectModel.addStudentSubject(subject_student);
+        if (listUpdate < 1) {
+            res.status(404).json({
+                success: false,
+                msg: 'No existe el curso'
+            });
+        };
 
-        const id = await subjectModel.addStudentSubject(studentId);
-
-        res.status(201).json({
+        res.status(200).json({
             success: true,
             message: "Estudiante agregado al curso con exito!",
             

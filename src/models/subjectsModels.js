@@ -43,7 +43,7 @@ exports.getSubjectStudents = async (id) => {
 };
 
 //Consulta POST para agregar un estudiante a un curso
-exports.addStudentSubject = async (students_subjects) => {
-    const [rows, fields] = await db.execute('INSERT INTO estudiantes_cursos (estudiante_id, curso_id) VALUES (?,?)', [students_subjects.studentId, students_subjects.subjectId]);
+exports.addStudentSubject = async (student) => {
+    const [rows, fields] = await db.execute('INSERT INTO estudiantes_cursos VALUES (?,?)', [student.estudiante_id, student.id]);
     return rows;
 };
