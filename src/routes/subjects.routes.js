@@ -1,6 +1,8 @@
 const express = require('express');
 const routerSubjects = express.Router();
 const subjectsController = require('../controllers/subjectsController');
+const { check } = require('express-validator');
+const { validateFields } = require('../middlewares/validate-fields');
 
 //* Definicion de rutas y derivacion al controlador correspondiente
 
@@ -11,7 +13,14 @@ routerSubjects.get('/', subjectsController._getSubjects);
 routerSubjects.get('/:id', subjectsController._getSubjectById);
 
 //Ruta para crear un curso
-routerSubjects.post('/', subjectsController._addSubject);
+routerSubjects.post('/',
+    [
+        check('estudiante_id', 'El id del estudiante es obligatorio').not().isEmpty(),
+        check('curso_id', 'El id del curso es obligatorio').not().isEmpty(),
+        validateFields
+    ],
+    subjectsController._addSubject
+);
 
 //Ruta para actualizar un curso por su id
 routerSubjects.put('/:id', subjectsController._updateSubject);
