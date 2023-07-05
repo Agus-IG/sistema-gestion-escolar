@@ -52,4 +52,4 @@ exports.addStudentSubject = async (student) => {
 exports.deleteStudentSubject = async (id) => {
     const [rows, fields] = await db.execute('DELETE FROM estudiantes_cursos WHERE estudiantes_cursos.estudiante_id = ? AND estudiantes_cursos.curso_id = ?', [id.estudiante_id, id.id]);
     return rows;
-}
+};

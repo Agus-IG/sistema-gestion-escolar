@@ -15,8 +15,8 @@ routerSubjects.get('/:id', subjectsController._getSubjectById);
 //Ruta para crear un curso
 routerSubjects.post('/',
     [
-        check('estudiante_id', 'El id del estudiante es obligatorio').not().isEmpty(),
-        check('curso_id', 'El id del curso es obligatorio').not().isEmpty(),
+        check('nombre', 'El nombre del curso es obligatorio').not().isEmpty(),
+        check('especialidad', 'La especialidad del curso es obligatoria').not().isEmpty(),
         validateFields
     ],
     subjectsController._addSubject
@@ -31,7 +31,13 @@ routerSubjects.delete('/:id', subjectsController._deleteSubject);
 //Ruta para mostrar los estudiantes que realizan el curso
 routerSubjects.get('/:id/estudiantes', subjectsController._getStudentSubjects);
 
-routerSubjects.post('/:id/estudiantes', subjectsController._addStudentSubject);
+routerSubjects.post('/:id/estudiantes',
+    [
+        check('estudiante_id', 'El id del estudiante es obligatorio').not().isEmpty(),
+        validateFields
+    ],
+    subjectsController._addStudentSubject
+);
 
 routerSubjects.delete('/:id/estudiantes', subjectsController._deleteStudentsSubject);
 
