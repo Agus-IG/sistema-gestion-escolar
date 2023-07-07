@@ -255,7 +255,7 @@ exports._deleteStudentsSubject = async (req, res) => {
         if (subject_student.length < 1) {
             res.status(404).json({
                 success: false,
-                message: `No existe curso con el id: ${idSubject}`
+                message: `No existe estudiante con el id: ${idStudent}`
             });
         };
 
